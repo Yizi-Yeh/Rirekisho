@@ -16,6 +16,10 @@
     </script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./css/bootstrap.css" />
+
+     <!-- swiper -->
+     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">  
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">  
     <!-- favicon -->
     <link rel="shortcut icon" href="./images/favicon.ico" />
     <!-- Google Fonts -->
@@ -37,6 +41,7 @@
     />
     <!-- My style css -->
     <link rel="stylesheet" href="./css/style.css" />
+   
   </head>
     <!-- muti-lang -->
   <body>
@@ -369,11 +374,19 @@
               </div>
             </div>
           </div>
-          <hr />
 
-          <!-- line-bot -->
-          <div data-bottom-top="transform: translateY(-100px); opacity: 0" data-center="transform: translateY(0px); opacity: 1" class="mt-5 row d-flex align-content-center card-box justify-content-center mx-auto">
-            <div class="col-4  sub-view ">
+
+          <div class="swiper-box">
+          <div class="swiper-button-prev icon_next icon_next__sca"></div>
+          <div class="swiper-button-next icon_next"></div>
+
+          
+          <div class="swiper-container ">
+            <div class="swiper-pagination"></div>
+          <div data-bottom-top="transform: translateY(-100px); opacity: 0" data-center="transform: translateY(0px); opacity: 1" class="swiper-wrapper mt-5 flex-row d-flex align-content-center justify-content-center mx-auto">
+
+                  <!-- line-bot -->
+            <div class="col-4 sub-view  swiper-slide">
               <a
                 class="link-a"
                 target="_blank"
@@ -394,7 +407,7 @@
                   </a>
                     <hr>
                     </p>
-                    <p>主要是熟悉Nodes.js環境，並使用cheerio套件爬取網頁內容的學習作業。<br/><br/>製作動機：<br/>以往在查詢日文單字時，常需要開啟網頁搜尋字典，再依檢索結果確認該單詞意思，但有時搜尋的結果沒有附上読み方，或是翻譯的意思雖然同樣是中文（簡體），卻好像也無法完全了解， 故希望改以操作LineBot，取代過往繁複的使用經驗。</p>
+                    <p>主要是熟悉Nodes.js環境，並使用cheerio套件爬取網頁內容的學習作業。<br/><br/>製作動機：<br/>以往在查詢日文單字時，常需要開啟網頁搜尋字典，再依檢索結果確認該單詞意， 故希望改以操作LineBot，取代過往繁複的使用經驗。</p>
                     <span class="badge badge-pill badge-dark">Javascript</span>
                     <span class="badge badge-pill badge-dark">Node.js</span>
                    
@@ -403,11 +416,10 @@
             </div>
             
 
-
           <!-- typinggames -->
-          <div class="col-4  sub-view ">
+          <div class="col-4 sub-view swiper-slide">
             <a
-              class="link-a"
+              class="link-a "
               target="_blank"
               href="https://yizi-yeh.github.io/JS-Games/TaipinkuGame/taipinku.html"
             >
@@ -438,9 +450,9 @@
           </div>
 
           <!-- color Cards -->
-          <div class="col-4  sub-view ">
+          <div class="col-4  sub-view swiper-slide">
             <a
-              class="link-a"
+              class="link-a "
               target="_blank"
               href="https://yizi-yeh.github.io/JS-Games/Cards/cardgames.html"
             >
@@ -469,11 +481,17 @@
                   <span class="badge badge-pill badge-dark">jQuery</span>
               </div>
             </div>
-        </div>
+          </div>
+
+          
+
         </div>
       </div>
+    </div>
+  </div>
+ 
     </section>
-
+  
     <!-- CONTACT section05 -------------------------->
     <section id="section05">
       <div class="container" data-bottom-top="transform: translateY(-100px); opacity: 0" data-center="transform: translateY(0px); opacity: 1">
@@ -536,13 +554,14 @@
     >
       <a href="#section01"><i class="fas fa-chevron-up"></i></a>
     </div>
-
-
     
     <script src="./js/jp.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js" integrity="sha512-A2+khatRDWHUE2VUtN4xUTkr1nc4YfDBw9Sg3ea6x0aRPfpcYieDZji4D2edDHy/yF5NsYzP7kL8sSM8s5EqCw==" crossorigin="anonymous"></script>
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"> </script>  
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"> </script>
 
     <script>
       // skrollr初始化
@@ -571,6 +590,29 @@
         $('body, html').animate({scrollTop: scrollTo+'px'}, 800);
           }
       });
+
+      // swiper初始化
+      new Swiper('.swiper-container')
+
+      const mySwiper = new Swiper ('.swiper-container', {
+    loop: true,
+		noSwiping: true, 
+		slideToClickedSlide: true,
+    slidesPerView: 2,
+    speed: 1000,
+    loop: true,
+    centeredSlides: true,
+    roundLengths: true,
+    // mousewheel: true,
+      navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+  })        
 
     </script>
   </body>
