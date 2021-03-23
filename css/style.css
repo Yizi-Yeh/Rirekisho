@@ -108,6 +108,7 @@ html {
 
 /* section01 */
 .about-content {
+  transition: 0.1s;
   padding: 30px;
   display: block;
   background-color: #fff;
@@ -418,4 +419,14 @@ button:hover {
   position: relative;
   margin: 0 auto;
   padding: 90px;
+}
+
+/* nav */
+
+.navActive {
+  background: #e7d5c8;
+  color: #fff !important;
+}
+.nav-side {
+  transition: 0.3s ease;
 }

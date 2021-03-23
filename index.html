@@ -55,22 +55,22 @@
     <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
       <div
         id="yizi-navbar"
-        class="collapse navbar-collapse justify-content-lg-end mx-auto"
+        class="nav-side collapse navbar-collapse justify-content-lg-end mx-auto"
       >
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item">
+          <li data-scroll-trigger="1" class="nav-item">
             <a class="nav-link" href="#section01">ABOUT</a>
           </li>
-          <li class="nav-item">
+          <li data-scroll-trigger="2" class="nav-item">
             <a class="nav-link" href="#section02">RESUME</a>
           </li>
-          <li class="nav-item">
+          <li data-scroll-trigger="3" class="nav-item">
             <a class="nav-link" href="#section03">SKILL</a>
           </li>
-          <li class="nav-item">
+          <li data-scroll-trigger="4" class="nav-item">
             <a class="nav-link" href="#section04">PORTFOLIO</a>
           </li>
-          <li class="nav-item">
+          <li data-scroll-trigger="5" class="nav-item">
             <a class="nav-link" href="#section05">CONTACT</a>
           </li>
         </ul>
@@ -78,7 +78,7 @@
     </nav>
 
     <!-- ABOUT section01 -------------------------->
-    <section id="section01">
+    <section data-scroll-target="1" id="section01" class="section">
       <div class="container-fluid about-content">
         <div class="about-heade mx-auto">
           <h1 class="main mb-5">About</h1>
@@ -93,7 +93,7 @@
             <div
               class="about-text d-flex flex-column align-content-center justify-content-center"
             >
-              <h2 class="text-center">葉宜姿 / Yizi-Yeh / ヨウギシ</h2>
+              <h2 class="text-center about-intro">葉宜姿 / Yizi-Yeh / ヨウギシ</h2>
               <br />
               <div class="container">
                 <p class="about-intro lang" key="self-intro">
@@ -110,7 +110,7 @@
     </section>
 
     <!-- RESUME section02 -------------------------->
-    <section id="section02" class="d-flex flex-column mb-5">
+    <section  data-scroll-target="2" id="section02" class="d-flex flex-column mb-5 section">
       <div class="container resume-container" data-bottom-top="transform: translateY(-100px); opacity: 0" data-center="transform: translateY(0px); opacity: 1">
         <div class="about-heade mx-auto">
           <h1 class="main">RESUME</h1>
@@ -235,7 +235,7 @@
     </section>
 
     <!-- SKILL section03 -------------------------->
-    <section id="section03">
+    <section data-scroll-target="3" id="section03" class="section">
       <div class="container skill-content">
         <div class="about-heade mx-auto">
           <h1 class="main">SKILL</h1>
@@ -291,7 +291,7 @@
     </section>
 
     <!-- PORTFOLIO section04 -------------------------->
-    <section id="section04">
+    <section data-scroll-target="4" id="section04" class="section">
       <div class="container" data-bottom-top="transform: translateY(-100px); opacity: 0" data-center="transform: translateY(0px); opacity: 1">
         <div class="about-heade mx-auto">
           <h1 class="main">PORTFOLIO</h1>
@@ -562,7 +562,7 @@
     </section>
   
     <!-- CONTACT section05 -------------------------->
-    <section id="section05">
+    <section data-scroll-target="5" id="section05" class="section">
       <div class="container" data-bottom-top="transform: translateY(-100px); opacity: 0" data-center="transform: translateY(0px); opacity: 1">
         <div class="about-heade mx-auto">
           <h1 class="main">CONTACT</h1>
@@ -633,12 +633,13 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"> </script>
 
     <script>
-      // skrollr初始化
+    // skrollr初始化
         const s = skrollr.init();
 
-      // 回到頂端 top 按鈕
+    // 回到頂端 top 按鈕
       $("#go_top_page").css({ display: "none" });
       let nowloc = 0;
+
       $(window).on("scroll", function () {
         nowloc = $(window).scrollTop();
         if (nowloc > 500) {
@@ -648,7 +649,28 @@
           $("#go_top_page").fadeOut(1000);
           $("#go_top_page").css({ "animation-iteration-count": "none" });
         }
+
+         
+          const $win = $(window),
+                winH = $win.height(),
+                winW = $win.width(),
+                current_pos = $win.scrollTop(),
+                current_btm = current_pos + winH;
+
+            $('.section').each(function(){
+                const section = $(this);
+                const num = section.attr('data-scroll-target');
+                console.log(section)
+
+                if(section.offset().top < current_pos+(winH/2) && current_pos+(winH/2) < section.offset().top + section.outerHeight()){
+                    $('.nav-side [data-scroll-trigger="'+num+'"]').addClass('navActive');
+                }else{
+                    $('.nav-side  [data-scroll-trigger="'+num+'"]').removeClass('navActive');
+                }
+            })
       });
+
+  
 
       // smooth Scroll
       $('.nav-link').click(function(e){
@@ -660,19 +682,16 @@
           }
       });
 
-      // swiper初始化
-      new Swiper('.swiper-container')
+    // swiper初始化
+    new Swiper('.swiper-container')
 
-      const mySwiper = new Swiper ('.swiper-container', {
-    loop: true,
-		noSwiping: true, 
+    const mySwiper = new Swiper ('.swiper-container', {
+    loop: true, 
 		slideToClickedSlide: true,
     slidesPerView: 5,
     speed: 1000,
-    loop: true,
     centeredSlides: true,
     roundLengths: true,
-    // mousewheel: true,
       navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
@@ -683,6 +702,16 @@
     },
   })        
 
+      // mousemove
+        $(window).mousemove(function (e) {
+        const pagex = e.pageX;
+        const pagey = e.pageY;
+
+        $(".about-intro").css(
+          "transform",
+          "translateX(" + (pagex / -20 + 50) + "px)"
+        );
+      });
     </script>
   </body>
 </html>
