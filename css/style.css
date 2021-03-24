@@ -370,7 +370,7 @@ button:hover {
   z-index: 1;
 }
 .swiper-wrapper {
-  width: 69vw;
+  width: auto;
   height: 700px;
   will-change: transform;
   display: flex;
@@ -467,6 +467,6 @@ button:hover {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-1855px);
+    transform: translateX(-1000px);
   }
 }
