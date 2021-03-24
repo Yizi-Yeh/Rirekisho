@@ -374,7 +374,7 @@ button:hover {
   height: 700px;
   will-change: transform;
   display: flex;
-  animation: carousel-slide 15s linear both;
+  animation: carousel-slide 15s linear infinite;
 }
 .swiper-wrapper:hover {
   animation-play-state: paused;
@@ -467,6 +467,6 @@ button:hover {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-1185px);
+    transform: translateX(-1855px);
   }
 }
