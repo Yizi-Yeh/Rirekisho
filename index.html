@@ -682,24 +682,25 @@
       });
 
     // swiper初始化
-  //   new Swiper('.swiper-container')
+    new Swiper('.swiper-container')
 
-  //   const mySwiper = new Swiper ('.swiper-container', {
-  //   loop: true, 
-	// 	slideToClickedSlide: true,
-  //   slidesPerView: 5,
-  //   speed: 1000,
-  //   centeredSlides: true,
-  //   roundLengths: true,
-  //     navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev',
-  //   },
-  //   pagination: {
-  //       el: '.swiper-pagination',
-  //       clickable: true,
-  //   },
-  // })        
+    const mySwiper = new Swiper ('.swiper-container', {
+    loop: true, 
+    autoplay:true,
+		slideToClickedSlide: true,
+    slidesPerView: 5,
+    speed: 500,
+    centeredSlides: true,
+    roundLengths: true,
+      navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+  })        
 
       // mousemove
         $(window).mousemove(function (e) {

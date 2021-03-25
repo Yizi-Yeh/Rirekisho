@@ -368,16 +368,8 @@ button:hover {
   margin-right: auto;
   padding: 0 100px;
   z-index: 1;
-}
-.swiper-wrapper {
-  width: auto;
-  height: 700px;
-  will-change: transform;
-  display: flex;
-  animation: carousel-slide 15s linear infinite;
-}
-.swiper-wrapper:hover {
-  animation-play-state: paused;
+  height: auto;
+  margin-top: 10%;
 }
 
 .swiper-slide {
@@ -392,6 +384,7 @@ button:hover {
   transition-duration: 0.3s;
   transition-timing-function: linear;
   transition-delay: 0s;
+  z-index: 999;
 }
 
 .swiper-button-next:after,
@@ -460,13 +453,4 @@ button:hover {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-}
-
-@keyframes carousel-slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-1000px);
-  }
 }
