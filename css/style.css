@@ -379,7 +379,7 @@ button:hover {
   flex-direction: column;
 }
 
-.swoper-button-prev {
+.swiper-button-prev {
   transition: opacity 0.3s linear;
   transition-duration: 0.3s;
   transition-timing-function: linear;
