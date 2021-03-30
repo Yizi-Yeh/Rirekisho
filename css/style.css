@@ -398,12 +398,9 @@ button:hover {
   font-size: 20px;
   letter-spacing: 0;
   line-height: 1;
-  z-index: 999;
 }
 
 .icon_next {
-  z-index: 999;
-  display: inline-block;
   width: 40px;
   height: 40px;
   background: url(/images/next.png) no-repeat center/100%;
@@ -411,7 +408,7 @@ button:hover {
   z-index: 999;
 }
 
-.icon_next__sca {
+.icon_next_reverse {
   transform: scale(-1, 1);
 }
 .swiper-box {
@@ -442,7 +439,7 @@ button:hover {
   margin-right: 5px;
   overflow: hidden;
   border: 1px solid #ccc9c9;
-  border-radius: 7px;
+  border-radius: 10px;
   white-space: normal;
   background-color: #fff;
 }
